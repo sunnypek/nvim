@@ -918,7 +918,6 @@ require("lazy").setup({
 require("nvim-tree").setup({
 	view = { adaptive_size = true },
 })
-require("java").setup()
 require("lspconfig").jdtls.setup({})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
