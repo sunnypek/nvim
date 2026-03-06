@@ -437,5 +437,10 @@ require("lazy").setup({
 })
 
 require("nvim-tree").setup({
-	view = { adaptive_size = true },
+	view = {
+		adaptive_size = true,
+		width = {
+			min = 0,
+		},
+	},
 })
