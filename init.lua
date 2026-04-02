@@ -4,9 +4,21 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.mouse = "a"
 vim.opt.showmode = false
-vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
-end)
+
+vim.g.clipboard = {
+	name = "win32yank-wsl",
+	copy = {
+		["+"] = "win32yank.exe -i --crlf",
+		["*"] = "win32yank.exe -i --crlf",
+	},
+	paste = {
+		["+"] = "win32yank.exe -o --lf",
+		["*"] = "win32yank.exe -o --lf",
+	},
+	cache_enabled = 0,
+}
+vim.opt.clipboard = "unnamedplus"
+
 vim.opt.breakindent = true
 vim.opt.undofile = true
 vim.opt.ignorecase = true
@@ -444,16 +456,3 @@ require("nvim-tree").setup({
 		},
 	},
 })
-
-vim.g.clipboard = {
-	name = "win32yank-wsl",
-	copy = {
-		["+"] = "win32yank.exe -i --crlf",
-		["*"] = "win32yank.exe -i --crlf",
-	},
-	paste = {
-		["+"] = "win32yank.exe -i --lf",
-		["*"] = "win32yank.exe -i --lf",
-	},
-	cache_enabled = 0,
-}
